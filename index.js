@@ -9,6 +9,8 @@ const swaggerUI = require('swagger-ui-express')
 const { responseApi, responseError, transformData } = require('./utils')
 const { PROVINCE } = require('./constant')
 const docs = require('./docs')
+const CSS_URL =
+  'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css'
 
 require('dotenv').config()
 
@@ -81,7 +83,11 @@ app.get('/weather/:province_id', async (req, res) => {
   }
 })
 
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs))
+app.use(
+  '/api-docs',
+  swaggerUI.serve,
+  swaggerUI.setup(docs, { customCssUrl: CSS_URL }),
+)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
