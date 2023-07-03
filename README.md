@@ -1,12 +1,8 @@
-## SPOTIFRIEND-BOT-API 🤖
+## WEATHER-API 🌧️
 
-Hanya sekedar BOT pengingat untuk memberitahukan informasi masa aktif Paket Spotify Premium 🎵
+Unofficial Weather API Wrapper from XML to JSON references from API BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) website: https://data.bmkg.go.id
 
-### Perintah ⌨️
+### For needs
 
-- `/hi` / `/hello` untuk menyapa user
-- `/info` untuk mengeluarkan informasi seputar masa aktif Paket Spotify Premium
-
-### Fitur lain
-
-- Menyapa user setiap hari dengan menanyakan kabar dan juga memberikan quotes of the day
+- Easy to use in JSON Format
+- Realtime data from BMKG API
