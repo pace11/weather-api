@@ -9,7 +9,7 @@ const swaggerUI = require('swagger-ui-express')
 const { responseApi, responseError, transformData } = require('./utils')
 const { PROVINCE } = require('./constant')
 const docs = require('./docs')
-const CSS_URL =
+const SWAGGER_CSS_URL =
   'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css'
 
 require('dotenv').config()
@@ -52,8 +52,7 @@ app.get('/provinces', async (req, res) => {
   try {
     responseApi({ res, data: PROVINCE })
   } catch (error) {
-    console.log('err => ', error)
-    res.status(503).json()
+    responseError({ res })
   }
 })
 
@@ -86,7 +85,7 @@ app.get('/weather/:province_id', async (req, res) => {
 app.use(
   '/api-docs',
   swaggerUI.serve,
-  swaggerUI.setup(docs, { customCssUrl: CSS_URL }),
+  swaggerUI.setup(docs, { customCssUrl: SWAGGER_CSS_URL }),
 )
 
 app.listen(PORT, () => {
