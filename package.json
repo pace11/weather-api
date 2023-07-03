@@ -1,0 +1,33 @@
+{
+  "name": "weather-api",
+  "version": "1.0.0",
+  "description": "Unofficial Weather API Wrapper from XML to JSON references from API BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) website: https://data.bmkg.go.id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cp .env.local .env && node --watch index.js",
+    "start:staging": "cp .env.staging .env && node --watch index.js"
+  },
+  "engines": {
+    "node": "^18"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.10",
+    "swagger-ui-express": "^4.6.3",
+    "xhr2": "^0.2.1",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "prettier": "2.8.7"
+  }
+}
