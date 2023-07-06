@@ -5,6 +5,8 @@ const helmet = require('helmet')
 const convert = require('xml-js')
 const XMLHttpRequest = require('xhr2')
 const swaggerUI = require('swagger-ui-express')
+const { ApolloServer } = require('apollo-server-express')
+const schema = require('./modules')
 
 const { responseApi, responseError, transformData } = require('./utils')
 const { PROVINCE } = require('./constant')
@@ -81,6 +83,13 @@ app.get('/weather/:province_id', async (req, res) => {
     responseError({ res })
   }
 })
+
+async function startServer() {
+  const server = new ApolloServer({ schema })
+  await server.start()
+  server.applyMiddleware({ app })
+}
+startServer()
 
 app.use(
   '/api-docs',
