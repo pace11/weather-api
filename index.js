@@ -85,7 +85,7 @@ app.get('/weather/:province_id', async (req, res) => {
 })
 
 async function startServer() {
-  const server = new ApolloServer({ schema })
+  const server = new ApolloServer({ schema, introspection: true })
   await server.start()
   server.applyMiddleware({ app })
 }
