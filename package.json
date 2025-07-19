@@ -1,36 +1,24 @@
 {
-  "name": "weather-api",
+  "name": "graphql-server",
   "version": "1.0.0",
-  "description": "Unofficial Weather API Wrapper from XML to JSON references from API BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) website: https://data.bmkg.go.id",
-  "main": "index.js",
+  "description": "Unofficial Weather Graphql Wrapper from API BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) website: https://data.bmkg.go.id",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cp .env.local .env && node --watch index.js",
-    "start:staging": "cp .env.staging .env && node --watch index.js"
+    "build": "tsc && cp -r src/schema dist/schema",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "engines": {
-    "node": "^18"
+    "node": ">=20.19.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@graphql-tools/schema": "^9.0.5",
-    "apollo-server-express": "^3.10.3",
-    "axios": "^0.27.2",
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "graphql": "^16.6.0",
-    "helmet": "^5.1.1",
-    "morgan": "^1.10.0",
-    "node-fetch": "^3.2.10",
-    "swagger-ui-express": "^4.6.3",
-    "xhr2": "^0.2.1",
-    "xml-js": "^1.6.11"
+    "@graphql-tools/load-files": "^6.5.4",
+    "@graphql-tools/merge": "^8.3.12",
+    "apollo-server": "^3.12.0",
+    "graphql": "^16.8.1"
   },
   "devDependencies": {
-    "prettier": "2.8.7"
+    "@types/node": "^20.11.30",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.2"
   }
 }

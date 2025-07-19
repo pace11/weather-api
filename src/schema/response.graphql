@@ -1,0 +1,51 @@
+type Location {
+  adm1: String!
+  adm2: String!
+  adm3: String!
+  adm4: String!
+  provinsi: String!
+  kotkab: String!
+  kecamatan: String!
+  desa: String!
+  lon: Float!
+  lat: Float!
+  timezone: String!
+  type: String
+}
+
+type Weather {
+  datetime: String!
+  t: Int!
+  tcc: Int!
+  tp: Float!
+  weather: Int!
+  weather_desc: String!
+  weather_desc_en: String!
+  wd_deg: Int!
+  wd: String!
+  wd_to: String!
+  ws: Float!
+  hu: Int!
+  vs: Int!
+  vs_text: String!
+  time_index: String!
+  analysis_date: String!
+  image: String!
+  utc_datetime: String!
+  local_datetime: String!
+}
+
+type Data {
+  lokasi: Location
+  cuaca: [Weather]
+}
+
+type WeatherResponse {
+  lokasi: Location
+  data: [Data]
+  sumber: String!
+}
+
+type Query {
+  weather(id: String!): WeatherResponse
+}
